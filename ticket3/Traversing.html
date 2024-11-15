@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Traversing methods</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="conatainer">
+        <ul>
+            <h1>Number Lists!</h1>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+        </ul>
+        <ol>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+        </ol>
+    </div>
+    <script>
+        $(document).ready(function(){
+        // returns the direct perent
+         let parentTag = $("li").parent();
+         console.log(parentTag);
+        //   returns all the perent
+         let allparent = $("li").parents();
+         console.log(allparent);
+        //  returns all parent elements between a <li> and a <div> element
+           let p = $("li").parentsUntil("body");
+           console.log(p);
+        // returns the direct childern
+           let ch = $("div").children();
+           console.log(ch);
+        // return the all the child element with the spacific name
+          let child = $("div").find("li").css("background-color","red");
+        });
+
+        // return all the direct sibling of element
+        let s = $("ul").siblings()
+        console.log(s);
+        // return the sibling of the elemnt
+        let s1 = $("ul").next();
+        console.log(s1);
+        // return all the sblings of element
+    console.log($("ul").nextAll());
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jqeury Basics !</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .moseenter-Event {
+            display: inline-block;
+        }
+
+        .section-text {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="moseenter-Event">
+        <!-- Performing MouseEnter-Event -->
+        <H3 class="h3">Enter to check the mouse Enter effect!</H3>
+        <!-- Performing MouseLeave-Event -->
+        <h4 class="h4">after enter leave it to know the mouse down effect!</h4>
+        <!-- Performing Mousedown-Event and Mouse up-->
+        <h5 class="h5">Enter to see the Mouse down effect!</h5>
+        <!-- Performing blur-Event and Focus effect -->
+        <label for="">name</label>
+        <input type="text" class="name">
+        <!-- Performing on method  -->
+        <p class="pera">Mouse hover to see the effect</p>
+    </div>
+    <!-- Performing Acordino -->
+    <div class="acor">
+
+        <button class="section" id="sec1">Section 1</button>
+        <div class="section-text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, fuga?</p>
+        </div>
+        <button class="section" id="sec2">section 2</button>
+        <div class="section-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id itaque suscipit, nesciunt atque ipsa placeat,
+                mollitia necessitatibus ex illum ducimus quae saepe labore delectus harum explicabo at quam, dolore
+                repellendus!</p>
+        </div>
+        <button class="section" id="sec3">section 3</button>
+        <div class="section-text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, amet optio laudantium reprehenderit ea
+                tempore inventore asperiores nostrum accusamus quaerat.</p>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+            $(".h3").mouseenter(function () {
+                $(".h3").text("You have Enterd! :)");
+                $(".h3").css("background-color", "blue");
+            });
+            $(".h4").mouseleave(function () {
+                $(".h4").text("You have Leave the mouse :)");
+                $(".h4").css("background-color", "red");
+            });
+            $(".h5").mousedown(function () {
+                $(".h5").text("You Enterd on the text! :)");
+                $(".h5").css("background-color", "green");
+            })
+            $(".h5").mouseup(function () {
+                $(".h5").text("mouse relased! :)");
+                $(".h5").css("background-color", "gray");
+            })
+            $(".name").focus(function () {
+                $(".name").css("background-color", "green");
+                $(".name").blur(function () {
+                    $(".name").css("background-color", "yellow");
+                });
+            });
+            $("p").on({
+                mouseenter: function () {
+                    $(".pera").text("clicked!");
+                },
+                mouseleave: function () {
+                    $(".pera").css("background-color", "blue");
+                }
+            })
+
+            $("button").click(function () {
+                // let id = $(this).attr("id");
+                // let value = $(`#${id}`).$(".section-text").css("display");
+                let value = $(this).next(".section-text");
+                if (value.css("display") == "none") {
+                    value.css("display", "block");
+                } else {
+                    value.css("display", "none");
+                }
+                //   2nd way to do
+                // $("button.section").click(function () {
+                //     let sectionContent = $(this).next(".section-text"); // Get the adjacent .section-text div
+
+                //     if (sectionContent.is(":hidden")) {
+                //         sectionContent.show(); // Show the content if it's hidden
+                //     } else {
+                //         sectionContent.hide(); // Hide the content if it's visible
+                //     }
+                // });
+
+            })
+       
+        });
+    </script>
+</body>
+
+</html>

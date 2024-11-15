@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Age Type</title>
+</head>
+<body>
+    <label for="age">Enter Your Age:</label>
+    <input type="text" id="age">
+    <button onclick="checkAge()">Check Age Type</button>
+    <div id="result"></div>
+    
+    <script>
+        function checkAge() {
+            let element = document.getElementById('age').value;
+            let ele = parseInt(element);
+            let ageType;
+
+           
+          
+               
+                let ageGroup;
+
+                if (ele <= 12) {
+                    ageGroup = "child";
+                } else if (ele <= 19) {
+                    ageGroup = "teenager";
+                } else if (ele < 60) {
+                    ageGroup = "adult";
+                } else {
+                    ageGroup = "senior";
+                }
+
+                
+                switch (ageGroup) {
+                    case "child":
+                        ageType = "Child";
+                        break;
+                    case "teenager":
+                        ageType = "Teenager";
+                        break;
+                    case "adult":
+                        ageType = "Adult";
+                        break;
+                    case "senior":
+                        ageType = "Senior";
+                        break;
+                    default:
+                        ageType = "Invalid input";
+                }
+            
+
+            
+            document.getElementById('result').textContent = "Age Type is: " + ageType;
+        }
+    </script>
+</body>
+</html>

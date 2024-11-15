@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Enter number seprated by comma </label>
+    <input type="text" id="arr">
+    <button onclick="maximum()">Max</button>
+    <button onclick="minimum()">Min</button>
+    <div id="result"></div>
+    <script>
+        // For Maximum element in array
+   function maximum() {
+        let str = document.getElementById('arr').value;
+        let arr = str.split(',').map(Number);
+        let max = -9999999;
+        for (let i = 0; i < arr.length; i++) {
+           if(max < arr[i]){
+            max = arr[i];
+           }
+        }
+        document.getElementById('result').textContent = "Maximum Element in array is : " + max;
+   }
+   function minimum() {
+        let str = document.getElementById('arr').value;
+        let arr = str.split(',').map(Number);
+        let min = 9999999;
+        for (let i = 0; i < arr.length; i++) {
+           if(min > arr[i]){
+            min = arr[i];
+           }
+        }
+        document.getElementById('result').textContent = "Minimum Element in array is : " + min;
+   }
+    </script>
+</body>
+</html>

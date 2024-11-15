@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 3 Carousel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+   
+        .buttondiv{
+            display: flex; 
+            justify-content: center;
+            margin-top: 5px;
+            margin-left: auto;
+            padding: 4px;
+        }
+        .btn-class:hover{
+            background-color: black;
+            color: aliceblue;
+        }
+        .btn-class{
+            position: absolute;
+  
+    top: 200px;
+            color: white;
+    height: 30px;
+    width: auto;
+    padding: 10px;
+    background-color: #1167e9;
+    display: flex;
+    align-items: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .maindiv {
+            height: 400px;
+            width: 70%;
+            border: 1px solid;
+            margin-top: 50px;
+            margin: auto;
+            overflow: hidden;
+        }
+        #carouselExampleControls, .divinside{
+            height: 100%;
+            width: 100%;
+        }
+        .carousel-control{
+            display: flex;
+            align-items: center;
+        }
+
+  
+
+    </style>
+</head>
+
+<body>
+
+    <div class="maindiv">
+        <div id="carouselExampleControls" class="carousel slide  " data-ride="carousel">
+            <div class="carousel-inner divinside">
+                <div class="item active">
+                    <img src="./img1.webp" alt="Slide 1">
+                </div>
+                <div class="item">
+                    <img src="./img2.webp" alt="Slide 2">
+                </div>
+                <div class="item">
+                    <img src="./img3.webp" alt="Slide 3">
+                </div>
+            </div>
+      
+
+
+     
+        </div> 
+    </div>
+    <div class="buttondiv">
+      <button class="btn btn-primary adjustbtn" href="#carouselExampleControls" data-slide="prev" aria-label="Previous">Prev</button>
+      <button href="#carouselExampleControls" data-slide="next" aria-label="Next"
+      style="margin-left: 5px;" class="btn btn-primary">Next</button>
+    </div>
+  
+</body>
+
+</html>

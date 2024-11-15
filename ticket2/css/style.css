@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+  
+  input[type=text], input[type=password],input[type = email] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      /* display: inline-block; */
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .container{
+      width: 500px;
+      padding: 12px 20px;
+      border: 1px solid #ccc;
+      background-color: aqua;
+      margin-top: 50px;
+    }
+    .link{
+      float: right;
+    }
+
+    .btn{
+      background-color: #96CEB4;
+      border: none;
+      width: 100%;
+      height: 30px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .pera{
+      text-align: center
+    }
+    .heading{
+      text-align: center;
+    }
+    .check-forgot{
+      margin-bottom: 10px;
+  
+    }
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    .message {
+        color: red; /* Default color for error messages */
+        margin-top: 5px;
+        font-size: 14px;
+    }

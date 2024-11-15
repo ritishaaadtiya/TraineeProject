@@ -1,0 +1,34 @@
+<!-- Q .5) convert lowercase letter to uppercase and uppercase to lowercase -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Enter a String</label>
+    <input type="text" id="str">
+    <button onclick="Uppercase()">Uppercase</button>
+    <button onclick="Lowercase()">lowercase</button>
+    <div id="result"></div>
+    
+    <script>
+        function Uppercase() {
+            let str1 = document.getElementById('str').value.trim()
+            let newstr = str1.toUpperCase();
+            document.getElementById('result').textContent = "Uppercase : " + newstr;
+
+        }
+        function Lowercase() {
+            let str1 = document.getElementById('str').value.trim()
+            let newstr = str1.toLowerCase();
+            document.getElementById('result').textContent = " lowercase : " + newstr;
+
+        }
+        
+
+
+    </script>
+</body>
+</html>

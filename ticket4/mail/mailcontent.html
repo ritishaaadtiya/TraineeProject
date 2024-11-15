@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome to Our Website</title>
+    <style>
+      /* Basic email reset */
+      body,
+      table,
+      td,
+      a {
+        text-size-adjust: 100%;
+        text-decoration: none;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        font-family: Arial, sans-serif;
+      }
+      .email-container {
+        width: 100%;
+        padding: 20px;
+        background-color: #ffffff;
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+      p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: #4caf50;
+        color: #ffffff;
+        padding: 12px 24px;
+        margin-top: 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .footer {
+        font-size: 12px;
+        color: #aaa;
+        text-align: center;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <h1>Hello {{username}}, Welcome to Our Website!</h1>
+      <p>
+        We're excited to have you join our community. With access to your new
+        account, you’ll be able to explore our latest features, connect with
+        like-minded people, and stay updated on all our exclusive content.
+      </p>
+      <p>
+        To get started, please confirm your email by clicking the button below:
+      </p>
+      <a href="https://mail.google.com/" class="cta-button">Confirm Email</a>
+      <p>If you didn’t request this email, please ignore it.</p>
+      <div class="footer">
+        <p>&copy; 2023 Our Website, Inc. All rights reserved.</p>
+        <p>1234 Street, Indore, M.P, 452001</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>request to reset password</title>
+    <style>
+      /* Basic email reset */
+      body,
+      table,
+      td,
+      a {
+        text-size-adjust: 100%;
+        text-decoration: none;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        font-family: Arial, sans-serif;
+      }
+      .email-container {
+        width: 100%;
+        padding: 20px;
+        background-color: #ffffff;
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+      p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: #4caf50;
+        color: #ffffff;
+        padding: 12px 24px;
+        margin-top: 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .footer {
+        font-size: 10px;
+        color: #aaa;
+        text-align: left;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <h1>Hello {{username}},</h1>
+      <strong>
+        It seems you requested to reset your password. Click the link below to
+        reset it
+      </strong>
+      <p>{{link}}</p>
+      <p>If you didn’t request this, you can safely ignore this email.</p>
+
+      <div class="footer">
+        <p>&copy;Thanks,</p>
+        <p>The Team xyz</p>
+      </div>
+    </div>
+  </body>
+</html>

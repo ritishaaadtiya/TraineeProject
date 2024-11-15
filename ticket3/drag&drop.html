@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+
+
+    <style>
+        .inside-drop{
+            display: flex;
+    justify-content: center;
+    background-color: blanchedalmond;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 400px;
+            width: 70%;
+            margin: auto;
+            margin-top: 40px;
+            border: 1px solid #ffff;
+            box-shadow: 1 1 4px;
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          
+        }
+
+        .drop {
+            height: 150px;
+            width: 150px;
+            background-color: aqua;
+            border: 2px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .drag{
+            height: 150px;
+            width: 150px;
+            background-color: aqua;
+            border: 2px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Drag And Drop</h2>
+        <div class="drop">
+            <h3>Drag div1</h3>
+        </div>
+        <div class="drop">
+            <h3>Drag div2</h3>
+        </div>
+        <div class="drop">
+            <h3>Drag div3</h3>
+        </div>
+        <div class="drop">
+            
+                <h2 style="text-align: center;">Drop here</h2>
+           
+        </div>
+    </div>
+    <script>
+       $(document).ready(function(){
+        $("h3").draggable();
+        $(".drop").droppable({
+            drop : function(){
+                $(this).css("background-color","cadetblue");
+                $(this).html("<h3>Dropped!</h3>");
+                console.log("this is droppable class");
+            }
+        })
+       });
+    </script>
+</body>
+
+</html>
+
+
+            

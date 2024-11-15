@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <label for="">Enter a number</label>
+    <input type="text" id="num">
+    <button onclick="table()">Genrate a Table</button>
+    <div id="result"></div>
+    <script>
+        function table() {
+            let num = document.getElementById('num').value;
+            let table = ""
+            for (let i = 1; i < 11; i++) {
+                multiply = i*parseInt(num);
+                table += num + "*" + i + "=" + multiply + "<br>" ;
+            }
+            document.getElementById('result').innerHTML = table;
+        }
+    </script>
+</body>
+</html>

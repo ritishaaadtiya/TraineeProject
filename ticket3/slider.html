@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .slider{
+            border: 1px dotted grey;
+            width: 60%;
+            height: 400px;
+            box-shadow: 2px;
+            margin: auto;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .img{
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Creating Carousle  -->
+    <div class="slider">
+        <img src="./img1.webp"  class="img" alt="">
+        <img src="./img2.webp" class="img" alt="">
+        <img src="./img3.webp" class="img" alt="">
+        
+     </div>
+     <div style="text-align: center; margin-top: 10px; padding: 10px;">
+     <button style="padding: 5px;">prev</button>
+        <button style="padding: 5px;">next</button>
+    </div> 
+    <script>
+   let val = $(".img");
+   slides.foreach(
+    (slide,index) => {
+     slide.style.left = `${index*100}%`
+    }
+)
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .error-msg {
+            color: red;
+            font-size: 14px;
+            padding: 20px;
+        }
+
+        /* #msg {
+            color: red;
+            font-size: 14px;
+            padding: 20px;
+        } */
+
+        .btn:disabled {
+            background-color: black;
+            /* Optional: Change button color when disabled */
+            cursor: not-allowed;
+            /* Optional: Change cursor to indicate it's disabled */
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="post">
+
+        <div class="container">
+            <div class="heading">
+                <h2>Sign up</h2>
+            </div>
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Your Name" id="name" name="name">
+            <div id="nameres"></div>
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Username" id="email" name="email">
+            <div id="emailres"></div>
+            <label for="psw"><b>Password</b></label>
+            <input type="text" placeholder="Enter Password" name="psw" id="psw">
+            <div id="pass"></div>
+            <label for="confirmpsw"><b>Confirm Password</b></label>
+            <input type="text" placeholder="Re-enter Password" name="confrm-psw" id="confirm-psw">
+
+            <div id="confirmpsw"></div>
+            <button class="btn" type="button">Sign up</button>
+
+            <p class="pera">Already have an account? <a href="register.php">Sign in</a>.</p>
+        </div>
+
+    </form>
+
+    <script src="./register.js">  </script>
+
+</body>
+
+</html>

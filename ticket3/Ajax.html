@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Intro</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .container{
+            margin: auto;
+            margin-top: 40px;
+            height: max-content;
+            width: 70%;
+            border: 1px solid rgb(224, 224, 133);
+            padding: 10px;
+        }
+        #img{
+            height: 300px;
+            width: 500px;
+            
+            /* display: none; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sunlit Serenity by the Riverbank</h2>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam exercitationem sint qui distinctio eius maiores, rem, quaerat odit, natus eligendi amet? Dicta, adipisci consequuntur tenetur hic, reiciendis, incidunt molestiae magnam vel provident voluptatibus exercitationem? Odit sint tempora, laboriosam illum, eum praesentium reprehenderit inventore, necessitatibus quod assumenda harum facere rem aspernatur.
+         </p>
+        <button id="img1">click here to see the image</button>
+        <button id="btn">click</button>
+        <button id="btn1">click me</button>
+        <div id="img"></div>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#img1").click(function(){
+                $("#img").load("./test.html",function(res,status,xhr){
+                    if(status == "error"){
+                    console.log(xhr.status);
+                }
+                });
+            })
+            $("#btn1").click(function(){
+               
+                    $.get("./data.txt",function(data,status){
+                        if(status != "error"){
+                                 alert(data + status);
+                        }
+                    });
+
+                    
+                
+                });
+                $("#btn").click(function(){
+                  $.post("./data.txt",{
+                    "name" : "Rit",
+                    "color" : "red"
+                  }
+
+                )
+                });
+
+            
+        });
+   
+    </script>
+</body>
+</html>

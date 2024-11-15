@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtering Method</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="div">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+        <p class="pera">Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, quas!</p>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("p").first().css("background-color","blue"); //return first the element in group
+            $("p").last().css("color","red"); // return thr last ele in group
+            $("p").eq(1).css("color","green"); // return the ele based on the index
+            $("p").filter(".pera").text("this the pera!")// it check based on the creteria
+            $("p").not(".pera").text("not pera!");
+        });
+    </script>
+</body>
+</html>
