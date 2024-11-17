@@ -42,7 +42,7 @@
 <body>
     <?php
 
-// app password is - gyak pnbo dfgi gljb
+
      if($_SERVER['REQUEST_METHOD']=='POST'){
         $toemail = $_POST['email'];
         $username = $_POST['name'];
