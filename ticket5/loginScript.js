@@ -1,18 +1,33 @@
 $(document).ready(function () {
+  $("#eye-icon").click(function () {
+    if ($("#psw").attr("type") == "password") {
+      $("#psw").attr("type", "text");
+      $(this).removeClass("fa-eye-slash").addClass("fa-eye");
+    } else {
+      $("#psw").attr("type", "password");
+      $(this).removeClass("fa-eye").addClass("fa-eye-slash");
+    }
+  });
   $(".button-primary").click(function () {
     let email = $("#email").val().trim();
     let password = $("#psw").val().trim();
     let Isvalid = true;
     $(".error-msg").remove();
-    // $("input").each(function () {
-    //   if ($(this).val() == "") {
-    //     let id = $(this).next().attr("id");
-    //     $("#" + id).html(
-    //       "<span class = 'error-msg'>Please fill the value</span>"
-    //     );
-    //     Isvalid = false;
-    //   }
-    // });
+    $("input").each(function () {
+      if ($(this).val() == "" && $(this).attr("id") != "psw") {
+        let id = $(this).next().attr("id");
+        $("#" + id).html(
+          "<span class = 'error-msg'>Please fill the value</span>"
+        );
+        Isvalid = false;
+      } else if ($("#psw").val() == "") {
+        $("#pswres").html(
+          "<span class = 'error-msg' style = 'color :red;'>Please fill the value!</span>"
+        );
+        Isvalid = false;
+        return Isvalid;
+      }
+    });
     let emailPattern = /^[^\s@]+@[^\s@]+\.(com|org)$/;
     let validemail = emailPattern.test(email);
     function validatePassword(password) {
@@ -67,6 +82,7 @@ $(document).ready(function () {
         }),
         contentType: "application/json",
         success: function (response) {
+          console.log(response);
           if (response.status == "error") {
             let data = response.Invalid;
             for (let val in data) {
@@ -75,7 +91,10 @@ $(document).ready(function () {
               );
             }
           } else {
-            alert(response.message);
+            // alert(response.message);
+            console.log("User email:", response.username); // Log specific values
+            console.log("Redirecting to dashboard...");
+            window.location.href = "dashboard.php";
           }
         },
         error: function (xhr) {

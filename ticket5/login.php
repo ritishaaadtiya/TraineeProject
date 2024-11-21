@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registeration Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <!-- Eye ICon -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         .ancor{
             text-decoration: none;
-            float: right;
+    float: right;
     /* margin-left: 34px; */
     position: relative;
+    left: 10px;
     /* right: -53px; */
-    right: 6px;
+    /* right: -11px; */
     font-size: 14.4px;
 
 }
@@ -110,19 +113,32 @@
             /* Light shadow for depth */
 
         }
+    #eye-icon{  float: right;
+    position: relative;
+    right: 15px;
+    bottom: 30px;
+    cursor: pointer;
+    }
     </style>
 </head>
-
+<?php
+session_start();
+if(isset($_SESSION['email'])){
+    header("location:dashboard.php");
+}
+?>
 <body>
     <div class="container">
         <div class="form">
             <form action="">
                 <h3>Sign in</h3>
                 <label for="">Email</label>
+                
                 <input type="text" id="email" placeholder="example@gmail.com" name="email">
                 <div id="emailres"></div>
                 <label for="">Password</label>
-                <input type="text" id="psw" name="psw">
+                <input type="password" id="psw" name="psw">
+                <i id="eye-icon" class="fas fa-eye-slash"></i>
                 <div id="pswres"></div>
                 <a class="ancor"  href="./forgotmail.php">Forgot password ?</a>
                 <button class="button-primary" type="button">Sign in</button>

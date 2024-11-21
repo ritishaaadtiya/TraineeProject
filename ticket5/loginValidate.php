@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './connectdb.php';
 $data = file_get_contents('php://input');
 $phpdata = json_decode($data,true);
@@ -62,8 +63,11 @@ if($isvalid){
         $isvalid = false;
         echo json_encode(['status'=>'error','Invalid'=>$Invalid]);
     }else{
-  
-    echo json_encode(['status'=> 'success', 'message'=> "successfully login"]);
+      $_SESSION['email'] = $email;
+      if($row = mysqli_fetch_assoc($result)){
+        $_SESSION['username'] = $row['username'];
+      }
+      echo json_encode(['status'=> 'success', 'message'=> "successfully login",'email'=>$email,'username'=>$_SESSION['username']]);
     }
 }
 else{

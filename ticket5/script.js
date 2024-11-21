@@ -9,7 +9,7 @@ $(document).ready(function () {
     $(".error-msg").remove();
     $("input").each(function () {
       if ($(this).val() == "") {
-        let id = $(this).next().attr("id");
+        let id = $(this).parent().next().attr("id");
         $(`#${id}`).html(
           "<span class = 'error-msg'  style = 'color :red;'>Please fill the values!</span>"
         );
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     if (validuser == true || (username != "" && username.length < 4)) {
       $("#usernameres").html(
-        "<span class = 'error-msg'  style = 'color :red;'>Username should not start with a number! and atleast 5 character</span>"
+        "<span class = 'error-msg'  style = 'color :red;'>Atleast 5 character and not start with number</span>"
       );
       Isvalid = false;
     }
@@ -102,6 +102,7 @@ $(document).ready(function () {
             }
           } else {
             alert(response.Message);
+            window.location.href = "login.php";
           }
         },
 

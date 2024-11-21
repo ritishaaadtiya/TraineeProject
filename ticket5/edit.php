@@ -6,10 +6,10 @@ require './connectdb.php';
 
 $data = file_get_contents("php://input");
 $phpdata = json_decode($data,true);
+$id = $phpdata["id"];
 $username = $phpdata["username"];
 $email = $phpdata["email"];
 $psw = $phpdata["password"];
-$confirm = $phpdata["confirmpsw"];
 $isvalid = true;
 $Invalid = [];
 
@@ -70,33 +70,25 @@ if(!$validpass){
     $Invalid['psw'] = "Please enter a valid password";
     $isvalid = false;
 }
-if($psw != $confirm){
-   $Invalid['confirm'] = "password should be match!";
-   $isvalid = false;
-}
+
 
 header('Content-Type: application/json');
-$query = "INSERT INTO user (username,email,password) VALUES($username,$email,$password)";
-$query = "SELECT email from user WHERE email = '$email'";
-$res = mysqli_query($connect,$query);
-
-if(mysqli_num_rows($res)>0){
-    $Invalid['email'] = "Email already exist!";
-    $isvalid = false;
+if($isvalid){
+    $checkemailquery = "SELECT id,email FROM user WHERE email = '$email' AND id != '$id'";
+    $checkemail = mysqli_query($connect,$checkemailquery);
+    if(mysqli_num_rows($checkemail)>0){
+      $Invalid['email'] = "Email already exist!";
+       echo json_encode(['status'=>'error','Invalid' => $Invalid]);
+       
+    }else{
+    $query = "UPDATE user SET username = '$username',email = '$email',password='$psw' where id='$id'"; 
+    $result = mysqli_query($connect, $query);
+    if($result){
+        echo json_encode(['status'=>'success','message' =>'User updated successfully']);
+    }else{
+        echo json_encode(['status'=>'error','message' =>'Error updating user']);
+    }
+  }
+}else{
+ echo json_encode(['status'=>'error','Invalid'=>$Invalid]);   
 }
-
-
-// Send the JSON response
-// Send the JSON response with errors if validation fails
-if (!$isvalid) {
-  echo json_encode(['status' => 'error', 'Invalid' => $Invalid]);
-} else {
-  $query = "INSERT INTO user (username,email,password) VALUES('$username','$email','$psw')";
-  $res = mysqli_query($connect,$query);
-  
-  // // Return success response if all validations pass
-  echo json_encode(['status' => 'success', 'Message' => 'Registers successfully']);
-}
-
-
-mysqli_close($connect);

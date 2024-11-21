@@ -79,6 +79,7 @@ $(document).ready(function () {
         success: function (response) {
           if (response.status == "success") {
             alert(response.message);
+            window.location.href = "login.php";
             console.log(response.message);
           } else {
             const arr = response.Invalid;
