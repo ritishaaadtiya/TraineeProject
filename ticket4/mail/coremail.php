@@ -14,7 +14,7 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $smtp_server = 'smtp.gmail.com';
 $smtp_port = 587;
 $smtp_user = 'ritishaaadtiya28@gmail.com';
-$smtp_pass = 'gyak pnbo dfgi gljb'; 
+
 
 // Attempt to send email using the mail() function
 if(mail($toemail, $subject, $message, $headers)) {
