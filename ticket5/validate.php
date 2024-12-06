@@ -5,7 +5,7 @@ require './connectdb.php';
 
 
 $data = file_get_contents("php://input");
-$phpdata = json_decode($data,true);
+$phpdata = json_decode($data, true);
 $username = $phpdata["username"];
 $email = $phpdata["email"];
 $psw = $phpdata["password"];
@@ -15,74 +15,73 @@ $Invalid = [];
 
 // Server Side Validations
 #validate username
-$invaliduser = is_numeric(substr($username, 0,1)); 
-if(strlen(string: $username)<4 || $invaliduser){
-    $Invalid['username'] = "please enter a valid username";
-   $isvalid = false;
+$invaliduser = is_numeric(substr($username, 0, 1));
+if (strlen(string: $username) < 4 || $invaliduser) {
+  $Invalid['username'] = "please enter a valid username";
+  $isvalid = false;
 }
-if($email == ""){
-   $Invalid['email'] = "Please Fill the values";
-   $isvalid = false;
+if ($email == "") {
+  $Invalid['email'] = "Please Fill the values";
+  $isvalid = false;
 }
 $invalidemail = filter_var($email, FILTER_VALIDATE_EMAIL);
-if(!$invalidemail){
-    $Invalid['email'] = "Please enter a valid email";
-    $isvalid = false;
+if (!$invalidemail) {
+  $Invalid['email'] = "Please enter a valid email";
+  $isvalid = false;
 }
-if ($psw == ""){
-   $Invalid['psw'] = 'please fill the values';
-   $isvalid = false;
+if ($psw == "") {
+  $Invalid['psw'] = 'please fill the values';
+  $isvalid = false;
 }
 # Function to check vaid password
-function check_password($chararray){
-    $hasDigit = false;
-    $hasUppercase = false;
-    $hasLowercase = false;
-    $hasSpecialChar = false;
-    $specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/`~";
-    foreach ($chararray as $char) {
-        // Check if the character is a digit
-        if ($char >= "0" && $char <= "9") {
-          $hasDigit = true;
-        }
-        // Check if the character is an uppercase letter
-        else if ($char >= "A" && $char <= "Z") {
-          $hasUppercase = true;
-        }
-        // Check if the character is a lowercase letter
-        else if ($char >= "a" && $char <= "z") {
-          $hasLowercase = true;
-        }
-        // Check if the character is a special character
-        else if (strpos($specialChars, $char)) {
-          $hasSpecialChar = true;
-        }
-      }
+function check_password($chararray)
+{
+  $hasDigit = false;
+  $hasUppercase = false;
+  $hasLowercase = false;
+  $hasSpecialChar = false;
+  $specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/`~";
+  foreach ($chararray as $char) {
+    // Check if the character is a digit
+    if ($char >= "0" && $char <= "9") {
+      $hasDigit = true;
+    }
+    // Check if the character is an uppercase letter
+    else if ($char >= "A" && $char <= "Z") {
+      $hasUppercase = true;
+    }
+    // Check if the character is a lowercase letter
+    else if ($char >= "a" && $char <= "z") {
+      $hasLowercase = true;
+    }
+    // Check if the character is a special character
+    else if (strpos($specialChars, $char)) {
+      $hasSpecialChar = true;
+    }
+  }
 
-      // Return true if all conditions are met
-      return $hasDigit && $hasUppercase && $hasLowercase && $hasSpecialChar;
-   
+  // Return true if all conditions are met
+  return $hasDigit && $hasUppercase && $hasLowercase && $hasSpecialChar;
 }
 $validpass = check_password(str_split($psw));
 
 
-if(!$validpass){
-    $Invalid['psw'] = "Please enter a valid password";
-    $isvalid = false;
+if (!$validpass) {
+  $Invalid['psw'] = "Please enter a valid password";
+  $isvalid = false;
 }
-if($psw != $confirm){
-   $Invalid['confirm'] = "password should be match!";
-   $isvalid = false;
+if ($psw != $confirm) {
+  $Invalid['confirm'] = "password should be match!";
+  $isvalid = false;
 }
-
+$hashpassword = password_hash($psw, PASSWORD_DEFAULT);
 header('Content-Type: application/json');
-$query = "INSERT INTO user (username,email,password) VALUES($username,$email,$password)";
 $query = "SELECT email from user WHERE email = '$email'";
-$res = mysqli_query($connect,$query);
+$res = mysqli_query($connect, $query);
 
-if(mysqli_num_rows($res)>0){
-    $Invalid['email'] = "Email already exist!";
-    $isvalid = false;
+if (mysqli_num_rows($res) > 0) {
+  $Invalid['email'] = "Email already exist!";
+  $isvalid = false;
 }
 
 
@@ -91,9 +90,9 @@ if(mysqli_num_rows($res)>0){
 if (!$isvalid) {
   echo json_encode(['status' => 'error', 'Invalid' => $Invalid]);
 } else {
-  $query = "INSERT INTO user (username,email,password) VALUES('$username','$email','$psw')";
-  $res = mysqli_query($connect,$query);
-  
+  $query = "INSERT INTO user (username,email,password) VALUES('$username','$email','$hashpassword')";
+  $res = mysqli_query($connect, $query);
+
   // // Return success response if all validations pass
   echo json_encode(['status' => 'success', 'Message' => 'Registers successfully']);
 }

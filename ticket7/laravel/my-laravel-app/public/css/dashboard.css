@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.mycontainer {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #4a90e2;
+    border-bottom: 2px solid #ccc;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.pera {
+    max-width: 70%; /* Limit width of the text container */
+}
+
+.pera h2,
+.pera p {
+    margin: 0; /* Remove default margins */
+    line-height: 1.5; /* Better readability */
+}
+.logout-btn {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+}
+.create-btn {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 135px;
+    background-color: #218838;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+}
+.create-btn:hover {
+    background-color: #1e7e34;
+}
+.btn {
+    text-align: right; /* Align button to the right */
+}
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+.tablecontainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+table {
+    background-color: #ffffff;
+    height: 400px;
+    width: 800px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+thead th {
+    background-color: #4a90e2;
+    color: white;
+}
+tr {
+    background-color: #f2f2f2;
+}
+caption h2 {
+    margin-bottom: 20px;
+}
+tbody {
+    text-align: center;
+}
+th {
+    height: 35px;
+    text-align: center;
+
+    padding: 5px;
+}
+td {
+    height: 50px;
+    padding: 9px 2px;
+}
+button {
+    width: 40%;
+    background-color: #4a90e2;
+    /* Use a bright color like blue */
+    color: white;
+    /* Contrast color */
+    border: none;
+    border-radius: 5px;
+    padding: 9px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

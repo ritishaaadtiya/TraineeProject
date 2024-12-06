@@ -4,9 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class registration extends Model
+class registration extends Authenticatable
 {
     use HasFactory;
-    protected $fillable  =  ['username','email','password'];
+    use HasApiTokens;
+    protected $fillable  =  ['username', 'email', 'password'];
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

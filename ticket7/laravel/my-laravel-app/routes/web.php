@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,21 +22,26 @@ Route::get('/', function () {
 // Route::get('/hello',function(){
 //     echo "hello world";
 // });
-Route::get('/index',function(){
+Route::get('/index', function () {
     return view('index');
 });
 # call the function from the controller
 use App\Http\Controllers\home;
 use App\Http\Controllers\registerationController;
+use App\Http\Controllers\TaskController;
 
-Route::get('/home',[home::class,'display']);
+Route::get('/home', [home::class, 'display']);
 
-Route::get('/name',[home::class,'show']);
-Route::get('/register',[home::class,'addData']);
+Route::get('/name', [home::class, 'show']);
+Route::get('/register', [home::class, 'addData']);
 
-Route::get('reg',function (){
+Route::get('reg', function () {
     return view('registeration');
 });
 
 # regiteration routes
-Route::post('/validate',[registerationController::class,'register']);
+Route::post('/validate', [registerationController::class, 'register']);
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+# Create TAsk routes
+Route::get('/create', [TaskController::class, 'showform'])->name('task');
+Route::post('/create', [TaskController::class, 'store_task']);

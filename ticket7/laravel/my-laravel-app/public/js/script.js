@@ -99,7 +99,8 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.status == "error") {
                         // Display error messages for invalid fields
-                        const arr = response.Invalid;
+                        console.log(response.error_message);
+                        const arr = response.error_message;
                         for (let key in arr) {
                             $("#" + key + "res").html(
                                 "<span class ='error-msg'>" +
@@ -107,14 +108,16 @@ $(document).ready(function () {
                                     "</span>"
                             );
                         }
-                    } else {
-                        alert(response.Message);
-                        window.location.href = "login.php";
+                    } else if (response.status == "success") {
+                        alert(response.msg);
+                        // alert(response.Message);
+                        // window.location.href = "login.php";
                     }
                 },
 
                 error: function (xhr) {
-                    alert(xhr.responseText);
+                    error = xhr.responseText;
+                    console.log(error);
                 },
             });
         }

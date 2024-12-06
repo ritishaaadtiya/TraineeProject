@@ -1,10 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registeration Page</title>
+    <!-- CSRF token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--  ICons -->
     <link
@@ -58,7 +60,7 @@
 
           <button class="button-primary" type="button">Sign up</button>
           <p class="loginlink">
-            already have an account ? <a href="./login.php">Login</a>
+            already have an account ? <a href="{{route('loginForm')}}">Login</a>
           </p>
         </form>
       </div>

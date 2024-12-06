@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'registration',
+        'passwords' => 'registrations',
     ],
 
     /*
@@ -40,6 +40,15 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'registration' => [
+            'driver' => 'session',
+            'provider' => 'registrations',
+        ],
+        'api' => [
+          'driver' => 'sanctum',
+          'provider' => 'registrations',  // Change this to match the custom provider
+],
+
     ],
 
     /*
@@ -65,10 +74,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'registrations' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\registration::class
+        ],
     ],
 
     /*
