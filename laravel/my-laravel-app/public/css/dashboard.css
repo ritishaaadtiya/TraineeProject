@@ -1,0 +1,200 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.mycontainer {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #4a90e2;
+    border-bottom: 2px solid #ccc;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.pera {
+    max-width: 70%; /* Limit width of the text container */
+}
+
+.pera h2,
+.pera p {
+    margin: 0; /* Remove default margins */
+    line-height: 1.5; /* Better readability */
+}
+.logout-btn {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+}
+.create-btn {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 135px;
+    background-color: #218838;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+}
+.create-btn:hover {
+    background-color: #1e7e34;
+}
+.btn {
+    text-align: right; /* Align button to the right */
+}
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+.tablecontainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+table {
+    background-color: #ffffff;
+    height: 400px;
+    width: 800px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+thead th {
+    background-color: #4a90e2;
+    color: white;
+}
+tr {
+    background-color: #f2f2f2;
+}
+caption h2 {
+    margin-bottom: 20px;
+}
+tbody {
+    text-align: center;
+}
+th {
+    height: 35px;
+    text-align: center;
+
+    padding: 5px;
+}
+td {
+    height: 50px;
+    padding: 9px 2px;
+}
+button {
+    background-color: #4a90e2;
+    /* Use a bright color like blue */
+    color: white;
+    /* Contrast color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* pagination css */
+
+/* Style for anchor tags as buttons */
+nav a {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4a90e2; /* Green background */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding inside the button */
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from the link */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for anchor button */
+nav a:hover {
+    background-color: #357abd; /* Darker green on hover */
+}
+
+/* Style for span tags as disabled buttons */
+nav span {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #6c757d; /* Gray background */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding inside the button */
+    cursor: not-allowed; /* Show not-allowed cursor */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center;
+    margin-left: 15px;
+}
+
+/* Optionally, disable interaction for span */
+nav span:disabled {
+    background-color: #6c757d; /* Gray background */
+    cursor: not-allowed; /* Disable pointer cursor */
+}
+
+/* select */
+/* Style for the language selection dropdown */
+.select-lang {
+    position: relative;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 180px; /* Adjust as needed */
+    height: 40px;
+    padding-left: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.select-lang select {
+    background-color: #ffffff;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    padding: 8px 12px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.select-lang select:focus {
+    border-color: #4a90e2; /* Focus color to match your theme */
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); /* Add a soft focus effect */
+}
+
+/* Style for the options inside the select dropdown */
+.select-lang option {
+    font-size: 16px;
+    color: #333;
+    background-color: #ffffff;
+    padding: 8px 12px;
+}
+
+/* Hover effect for options */
+.select-lang option:hover {
+    background-color: #f2f2f2;
+}
